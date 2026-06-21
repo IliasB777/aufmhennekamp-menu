@@ -123,6 +123,54 @@ h1 {
 </head>
 
 <body>
+    <script>
+const userLang = navigator.language || navigator.userLanguage;
+
+const languageMap = {
+    "de": "Deutsch.html",
+    "en": "English.html",
+    "fr": "Français.html",
+    "it": "Italiano.html",
+    "es": "Español.html",
+    "el": "Ελληνικά.html",
+    "tr": "Türkçe.html",
+    "ru": "Русский.html",
+    "zh": "中文.html",
+    "ko": "한국어.html",
+    "vi": "Tiếng Việt.html",
+    "ar": "العربية.html",
+    "ja": "日本語.html",
+    "hr": "Hrvatski.html",
+    "pt": "Português.html"
+};
+
+const langCode = userLang.split("-")[0];
+const target = languageMap[langCode];
+
+window.addEventListener("DOMContentLoaded", () => {
+    if (target) {
+        const box = document.createElement("div");
+        box.innerHTML = `
+            <a href="${target}" style="
+                display:block;
+                max-width:720px;
+                margin:20px auto;
+                padding:16px;
+                border-radius:14px;
+                background:#1f2937;
+                color:white;
+                text-align:center;
+                text-decoration:none;
+                font-weight:700;
+                font-size:18px;
+            ">
+                Empfohlene Sprache öffnen / Open suggested language
+            </a>
+        `;
+        document.body.prepend(box);
+    }
+});
+</script>
 <div class="wrapper">
 
     <div class="hero">
